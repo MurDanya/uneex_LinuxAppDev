@@ -1,0 +1,16 @@
+start -100 100 3 > /dev/null
+
+set $index = 0
+b range_get
+    command 2
+        if $index >= 28 && $index <= 35
+            printf "@@@ start: %d\n", seq->start
+            printf "@@@ stop: %d\n", seq->stop
+            printf "@@@ step: %d\n", seq->step
+            printf "@@@ iter: %d\n", seq->iter
+        end
+        set $index = $index + 1
+        c
+    end
+c
+
