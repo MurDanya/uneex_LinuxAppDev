@@ -1,0 +1,25 @@
+--- labgen_ver2.c	2024-11-15 15:49:01.728068614 +0300
++++ labgen_ver3.c	2024-11-15 15:49:44.141420859 +0300
+@@ -135,16 +135,18 @@
+ }
+ 
+ int main(int argc, char* argv[]) {
+-    if (argc != 3) {
+-        fprintf(stderr, "Error. Incorrect number of arguments.\nUsage: %s SYMBOLS_PASSAGES_AND_WALLS LABIRINT_SIZE\n", argv[0]);
++    if (argc != 4) {
++        fprintf(stderr, "Error. Incorrect number of arguments.\nUsage: %s SEED_RANDOM SYMBOLS_PASSAGES_AND_WALLS LABIRINT_SIZE\n", argv[0]);
+         return 1;
+     }
+-    char* symbols = argv[1];
++    int seed = atoi(argv[1]);
++    srand(seed);
++    char* symbols = argv[2];
+     if (strlen(symbols) != 2) {
+         fprintf(stderr, "Error. Incorrect SYMBOLS_PASSAGES_AND_WALLS.\nUse 2 symbols for passages and walls.\n");
+         return 1;
+     }
+-    int lab_size = atoi(argv[2]);
++    int lab_size = atoi(argv[3]);
+     if (lab_size < 1) {
+         fprintf(stderr, "Error. Incorrect LABIRINT_SIZE.\nUse positive size.\n");
+         return 1;

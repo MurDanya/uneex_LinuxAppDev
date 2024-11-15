@@ -1,0 +1,72 @@
+--- labgen_ver0.c	2024-11-15 15:31:59.748768737 +0300
++++ labgen_ver1.c	2024-11-15 15:48:44.882831435 +0300
+@@ -2,10 +2,8 @@
+ #include <stdlib.h>
+ #include <stdbool.h>
+ 
+-#define LAB_SIZE 6
+-
+-char* create_template() {
+-    int board_size = 2 * LAB_SIZE + 1;
++char* create_template(int lab_size) {
++    int board_size = 2 * lab_size + 1;
+     char* lab = malloc(board_size * board_size * sizeof(char));
+     for (int i = 0; i < board_size; ++i) {
+         for (int j = 0; j < board_size; ++j) {
+@@ -19,8 +17,8 @@
+     return lab;
+ }
+ 
+-void print_lab(char* lab) {
+-    int board_size = 2 * LAB_SIZE + 1;
++void print_lab(char* lab, int lab_size) {
++    int board_size = 2 * lab_size + 1;
+     for (int i = 0; i < board_size; ++i) {
+         for (int j = 0; j < board_size; ++j) {
+             putchar(lab[i * board_size + j]);
+@@ -83,9 +81,9 @@
+     }
+ }
+ 
+-void generate_path(char* lab) {
+-    int board_size = 2 * LAB_SIZE + 1;
+-    int num_rooms = LAB_SIZE + 2;
++void generate_path(char* lab, int lab_size) {
++    int board_size = 2 * lab_size + 1;
++    int num_rooms = lab_size + 2;
+     bool** is_visit = malloc(num_rooms * sizeof(bool*));
+     for (int i = 0; i < num_rooms; ++i) {
+         is_visit[i] = malloc(num_rooms * sizeof(bool));
+@@ -103,8 +101,8 @@
+     }
+     struct Point* queue = malloc(num_rooms * num_rooms * sizeof(struct Point));
+     struct Point room;
+-    room.x = (rand() % LAB_SIZE) + 1;
+-    room.y = (rand() % LAB_SIZE) + 1;
++    room.x = (rand() % lab_size) + 1;
++    room.y = (rand() % lab_size) + 1;
+     is_visit[room.x][room.y] = true;
+     queue[0] = room;
+     int size_queue = 1;
+@@ -136,9 +134,18 @@
+ }
+ 
+ int main(int argc, char* argv[]) {
+-    char* lab = create_template();
+-    generate_path(lab);
+-    print_lab(lab);
++    if (argc != 2) {
++        fprintf(stderr, "Error. Incorrect number of arguments.\nUsage: %s LABIRINT_SIZE\n", argv[0]);
++        return 1;
++    }
++    int lab_size = atoi(argv[1]);
++    if (lab_size < 1) {
++        fprintf(stderr, "Error. Incorrect LABIRINT_SIZE.\nUse positive size.\n");
++        return 1;
++    }
++    char* lab = create_template(lab_size);
++    generate_path(lab, lab_size);
++    print_lab(lab, lab_size);
+     free(lab);
+     return 0;
+ }
