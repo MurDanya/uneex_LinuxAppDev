@@ -1,0 +1,75 @@
+# Russian translations for num_guesser package.
+# Copyright (C) 2024 COPYRIGHT HOLDER
+# This file is distributed under the same license as the guess package.
+# MurDanya <muranil7@yandex.ru>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: guess 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-29 15:15+0300\n"
+"PO-Revision-Date: 2024-11-29 14:36+0300\n"
+"Last-Translator: MurDanya <muranil7@yandex.ru>\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: ../src/guess.c:37
+#, c-format
+msgid "Guessing a number from 1 to 100.\n"
+msgstr "Угадывание числа от 1 до 100.\n"
+
+#: ../src/guess.c:38
+#, c-format
+msgid "Usage:\n"
+msgstr "Используйте:\n"
+
+#: ../src/guess.c:39
+#, c-format
+msgid "    --help  Show help message\n"
+msgstr "    --help  Показать сообзение справки\n"
+
+#: ../src/guess.c:40
+#, c-format
+msgid "    -r      Enable Roman numbers\n"
+msgstr "    -r      Включить Римские числа\n"
+
+#: ../src/guess.c:48
+#, c-format
+msgid "Think of a number between 1 and 100\n"
+msgstr "Придумайте число от 1 до 100\n"
+
+#: ../src/guess.c:56
+#, c-format
+msgid "Is the number greater then %s?\n"
+msgstr "Ваше число больше чем %s\n"
+
+#: ../src/guess.c:61
+msgid "y"
+msgstr "д"
+
+#: ../src/guess.c:61
+msgid "yes"
+msgstr "да"
+
+#: ../src/guess.c:65
+msgid "n"
+msgstr "н"
+
+#: ../src/guess.c:65
+msgid "no"
+msgstr "нет"
+
+#: ../src/guess.c:71
+#, c-format
+msgid "Enter yes(y) or no(n)\n"
+msgstr "Введите да(д) или нет(н)\n"
+
+#: ../src/guess.c:75
+#, c-format
+msgid "You thought of the number %s\n"
+msgstr "Вы загадали число %s\n"

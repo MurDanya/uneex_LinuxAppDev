@@ -1,0 +1,13 @@
+PROJECT_NAME           = "Guess number program"
+OUTPUT_DIRECTORY       = "docs"
+GENERATE_LATEX         = NO
+GENERATE_HTML          = YES
+INPUT                  = src/guess.h src/guess.c
+FILE_PATTERNS          = *.c
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_METHODS  = YES
+EXTRACT_ANON_NSPACES   = YES
+GENERATE_MAN           = YES
+MAN_OUTPUT             = man
